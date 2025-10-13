@@ -194,32 +194,56 @@ void run_REVERSE() {
 void run_TURNRF() {
   gpioExt.digitalWrite(nSLPLPin, HIGH);
   gpioExt.digitalWrite(nSLPRPin, HIGH);
-  digitalWrite(rightMotorDIRPin, FWD);
-  digitalWrite(leftMotorDIRPin, FWD);
+  digitalWrite(rightMotorDIRPin, REV);
+  digitalWrite(leftMotorDIRPin, REV);
   pwmGoLowCount = 0.01 * pwmDutyCycle * motorPwmMaxCount;
-  ledcWrite(rightMotorPWMPin, pwmGoLowCount);
+  ledcWrite(rightMotorPWMPin, pwmGoLowCount*0.5);
   ledcWrite(leftMotorPWMPin, pwmGoLowCount);
 }
 
 void run_TURNLF() {
-  ledcWrite(rightMotorDIRPin, 50);
-  ledcWrite(leftMotorDIRPin, 100);
-  ledcWrite(rightMotorPWMPin, 0);
-  ledcWrite(leftMotorPWMPin, 0);
+  // ledcWrite(rightMotorDIRPin, 50);
+  // ledcWrite(leftMotorDIRPin, 100);
+  // ledcWrite(rightMotorPWMPin, 0);
+  // ledcWrite(leftMotorPWMPin, 0);
+
+  gpioExt.digitalWrite(nSLPLPin, HIGH);
+  gpioExt.digitalWrite(nSLPRPin, HIGH);
+  digitalWrite(rightMotorDIRPin, REV);
+  digitalWrite(leftMotorDIRPin, REV);
+  pwmGoLowCount = 0.01 * pwmDutyCycle * motorPwmMaxCount;
+  ledcWrite(rightMotorPWMPin, pwmGoLowCount);
+  ledcWrite(leftMotorPWMPin, pwmGoLowCount*0.5);
 }
 
 void run_TURNRR() {
-  ledcWrite(rightMotorDIRPin, 0);
-  ledcWrite(leftMotorDIRPin, 0);
-  ledcWrite(rightMotorPWMPin, 100);
-  ledcWrite(leftMotorPWMPin, 50);
+  //ledcWrite(rightMotorDIRPin, 0);
+  //ledcWrite(leftMotorDIRPin, 0);
+  //ledcWrite(rightMotorPWMPin, 100);
+  //ledcWrite(leftMotorPWMPin, 50);
+
+  gpioExt.digitalWrite(nSLPLPin, HIGH);
+  gpioExt.digitalWrite(nSLPRPin, HIGH);
+  digitalWrite(rightMotorDIRPin, FWD);
+  digitalWrite(leftMotorDIRPin, FWD);
+  pwmGoLowCount = 0.01 * pwmDutyCycle * motorPwmMaxCount;
+  ledcWrite(rightMotorPWMPin, pwmGoLowCount);
+  ledcWrite(leftMotorPWMPin, pwmGoLowCount*0.5);
 }
 
 void run_TURNLR() {
-  ledcWrite(rightMotorDIRPin, 0);
-  ledcWrite(leftMotorDIRPin, 0);
-  ledcWrite(rightMotorPWMPin, 50);
-  ledcWrite(leftMotorPWMPin, 100);
+  // ledcWrite(rightMotorDIRPin, 0);
+  // ledcWrite(leftMotorDIRPin, 0);
+  // ledcWrite(rightMotorPWMPin, 50);
+  // ledcWrite(leftMotorPWMPin, 100);
+
+  gpioExt.digitalWrite(nSLPLPin, HIGH);
+  gpioExt.digitalWrite(nSLPRPin, HIGH);
+  digitalWrite(rightMotorDIRPin, FWD);
+  digitalWrite(leftMotorDIRPin, FWD);
+  pwmGoLowCount = 0.01 * pwmDutyCycle * motorPwmMaxCount;
+  ledcWrite(rightMotorPWMPin, pwmGoLowCount*0.5);
+  ledcWrite(leftMotorPWMPin, pwmGoLowCount);
 }
 
 void run_PIVOTRF() {
